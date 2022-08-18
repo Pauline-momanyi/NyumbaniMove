@@ -1,13 +1,14 @@
 // import logo from './logo.svg';
 import './App.css';
 import Signup from './components/Signup';
-import Testing from './components/Testing';
+import Signin from './components/Signin';
+
 
 function App() {
   return (
     <div className="App">
-      {/* <Testing/> */}
-      <Signup/>
+      <Signup />
+      <Signin />
     </div>
   );
 }
