@@ -25,8 +25,8 @@ export default function Signup() {
     }
 
     try {
-      setError("");
-      setLoading(true);
+      // setError("");
+      // setLoading(true);
 
       console.log("perform signup");
     //   const res = await signup(emailRef.current.value, passwordRef.current.value);
@@ -57,22 +57,22 @@ export default function Signup() {
         <div className="w-100" style={{ maxWidth: "500px" }}>
           <Card>
             <Card.Body className="card-form">
-              <h2 className="text-center mb-4">Sign Up</h2>
+              <h3 className="mb-4">Sign Up</h3>
               {error && <Alert variant="danger">{error}</Alert>}
               <Form onSubmit={handleSubmit}>
-                <Form.Group id="name" className="mb-4">
+                <Form.Group id="name">
                   <Form.Control placeholder="Name" type="text" ref={nameRef} required/>
                 </Form.Group>
-                <Form.Group id="email" className="mb-4">
+                <Form.Group id="email">
                   <Form.Control placeholder="Email" type="email" ref={emailRef} required />
                 </Form.Group>
-                <Form.Group id="phone" className="mb-4">
+                <Form.Group id="phone">
                   <Form.Control placeholder="Phone Number" type="tel" ref={phoneRef} required />
                 </Form.Group>
-                <Form.Group id="password" className="mb-4">
+                <Form.Group id="password">
                   <Form.Control type="password" placeholder="Password" ref={passwordRef} required />
                 </Form.Group>
-                <Form.Group id="password-confirm" className="mb-4">
+                <Form.Group id="password-confirm">
                   <Form.Control
                     type="password"
                     placeholder="Confirm Password"
@@ -85,7 +85,7 @@ export default function Signup() {
                   disabled={loading}
                   className="w-100 mb-4"
                   type="submit"
-                  style={{ backgroundColor: "#FFBA00" }}
+                  // style={{ backgroundColor: "#FFBA00" }}
                 >
                   Sign Up
                 </Button>
