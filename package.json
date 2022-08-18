@@ -1,5 +1,5 @@
 {
-    "name": "MoversApp",
+    "name": "movers_app",
     "description": "Build scripts for Heroku",
     "engines": {
       "node": "16.15.0"
