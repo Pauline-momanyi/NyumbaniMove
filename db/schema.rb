@@ -19,9 +19,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_19_090613) do
     t.string "email"
     t.string "phone"
     t.string "password_digest"
-    t.boolean "is_admin"
-    t.boolean "is_mover"
-    t.boolean "is_client"
+    t.boolean "is_admin", default: true, null: false
+    t.boolean "is_mover", default: false, null: false
+    t.boolean "is_client", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,9 +31,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_19_090613) do
     t.string "email"
     t.string "phone"
     t.string "password_digest"
-    t.boolean "is_admin"
-    t.boolean "is_mover"
-    t.boolean "is_client"
+    t.boolean "is_admin", default: false, null: false
+    t.boolean "is_mover", default: true, null: false
+    t.boolean "is_client", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,9 +43,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_19_090613) do
     t.string "email"
     t.string "phone"
     t.string "password_digest"
-    t.boolean "is_admin"
-    t.boolean "is_mover"
-    t.boolean "is_client"
+    t.boolean "is_admin", default: false, null: false
+    t.boolean "is_mover", default: false, null: false
+    t.boolean "is_client", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

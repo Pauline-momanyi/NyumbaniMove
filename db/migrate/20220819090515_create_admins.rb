@@ -5,9 +5,9 @@ class CreateAdmins < ActiveRecord::Migration[7.0]
       t.string :email
       t.string :phone
       t.string :password_digest
-      t.boolean :is_admin
-      t.boolean :is_mover
-      t.boolean :is_client
+      t.boolean :is_admin, default: true, null: false
+      t.boolean :is_mover, default: false, null: false
+      t.boolean :is_client, default: false, null: false
 
       t.timestamps
     end

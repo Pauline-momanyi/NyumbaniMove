@@ -5,7 +5,12 @@ Rails.application.routes.draw do
 
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
+
+    resources :admins, only: [:show]
+    resources :users, only: [:index, :create, :show]
   end
 
   resources :tests, only: [:index]
+
+  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
