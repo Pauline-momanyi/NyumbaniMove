@@ -17,8 +17,7 @@ class Api::SessionsController < ApplicationController
         # session.delete :user_id
         # session[:user_id] = nil
         # head :no_content 
-        
-        
+                
         if User.find_by(id: session[:user_id])
             session.delete :user_id
             head :no_content 
