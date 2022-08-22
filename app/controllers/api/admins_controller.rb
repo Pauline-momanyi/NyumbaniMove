@@ -12,6 +12,11 @@ class Api::AdminsController < ApplicationController
         # render json: @current_user        
     end
 
+    def index         
+        user =  Mover.all 
+        render json: user
+    end
+
 
     private 
     def render_unprocessable_entity_response(exception)
