@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+
   namespace :api do 
     post '/signup', to: 'users#create'
     get '/me', to: 'users#show'
@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :tests, only: [:index]
 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
+
 end

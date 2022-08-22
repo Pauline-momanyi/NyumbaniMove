@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
 
     private
     def booking_params
-        params.permit(:date,:origin, :destination, :distance,:cost, :date, :houseSize, :user_id, :mover_id)
+        params.permit(:date,:origin, :destination, :distance,:cost,  )
     end
 
     def render_not_found_response

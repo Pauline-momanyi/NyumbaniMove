@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-  rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+#   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+#   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     def index
         bookings = Booking.all
@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
 
     private
     def booking_params
-        params.permit(:date,:origin, :destination, :distance,:cost, :date, :houseSize, :user_id, :mover_id)
+        params.permit(:date,:origin, :destination, :distance,:cost, :date, :houseSize,  )
     end
 
     def render_not_found_response

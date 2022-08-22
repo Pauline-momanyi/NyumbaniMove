@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 Admin.create!(name: 'Nyumbani Move', email: 'nyumbanimove.info.com', phone: '0701000000', password: '123456', is_admin: true, is_mover: false, is_client: false)
-User.create!(name: 'Moving', email: 'nyumbanimove.info.com', phone: '0701000000', password: '123456', is_admin: false, is_mover: false, is_client: true)
-Mover.create!(name: 'Ofisi Move', email: 'ofisimove.info.com', phone: '0701000000', password: '123456', is_admin: false, is_mover: true, is_client: false)
+User.create!(name: 'Nyumbani Move', email: 'nyumbanimove.info.com', phone: '0701000000', password: '123456', is_admin: true, is_mover: false, is_client: false)
+.create!(name: 'Nyumbani Move', email: 'nyumbanimove.info.com', phone: '0701000000', password: '123456', is_admin: true, is_mover: false, is_client: false)
 
 puts 'done seeding'
