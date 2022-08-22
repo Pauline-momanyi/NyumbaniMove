@@ -1,37 +1,36 @@
 class BookingsController < ApplicationController
+class StudentsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     def index
-        bookings = Booking.all
+        bookings = Student.all
         render json: bookings
     end
     def show
-        bookings = Booking.find(params[:id])
+        bookings = Student.find(params[:id])
         render json: bookings
     end
     def create
-        bookings = Booking.create!(booking_params)
+        bookings = Student.create!(student_params)
         render json: bookings, status: :accepted
     end
 
     def update
-        bookings = Booking.find(params[:id])
-        bookings.update(booking_params)
+        bookings = Student.find(params[:id])
+        bookings.update(student_params)
         render json: bookings
     end
 
     def destroy
-        bookings = Booking.find(params[:id])
+        bookings = Student.find(params[:id])
         bookings.destroy!
+        # render json: students
         head :no_content
     end
 
 
     private
-    def booking_params
-        params.permit(:date,:origin, :destination, :distance,:cost,  )
-    end
 
     def render_not_found_response
         render json: { error: "bookings not found" }, status: :not_found

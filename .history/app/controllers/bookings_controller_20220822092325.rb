@@ -24,6 +24,7 @@ class BookingsController < ApplicationController
     def destroy
         bookings = Booking.find(params[:id])
         bookings.destroy!
+        # render json: students
         head :no_content
     end
 

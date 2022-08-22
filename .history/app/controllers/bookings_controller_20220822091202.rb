@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+class StudentsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
@@ -24,13 +25,14 @@ class BookingsController < ApplicationController
     def destroy
         bookings = Booking.find(params[:id])
         bookings.destroy!
+        # render json: students
         head :no_content
     end
 
 
     private
     def booking_params
-        params.permit(:date,:origin, :destination, :distance,:cost,  )
+
     end
 
     def render_not_found_response
