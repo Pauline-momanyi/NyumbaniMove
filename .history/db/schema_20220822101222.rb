@@ -1,3 +1,4 @@
+
 <<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2022_08_20_081935) do
   # These are extensions that must be enabled in order to support this database
@@ -13,8 +14,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_20_081935) do
     t.string "houseSize"
     t.integer "user_id", null: false
     t.integer "mover_id", null: false
-  end
 =======
+ActiveRecord::Schema[7.0].define(version: 2022_08_19_090613) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
