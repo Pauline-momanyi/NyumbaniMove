@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_20_081935) do
   end
 =======
 
+
   create_table "admins", force: :cascade do |t|
     t.string "name"
     t.string "email"
