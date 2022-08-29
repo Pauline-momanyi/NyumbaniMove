@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
     resources :admins, only: [:show]
     resources :users, only: [:index, :create, :show]
-    resources :movers, only: [:index, :show, :create, :update, :destroy]
+    resources :movers
   end
   
   resources :bookings, only: [:index, :show, :create, :update, :destroy]

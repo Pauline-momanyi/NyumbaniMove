@@ -8,10 +8,10 @@ Rails.application.routes.draw do
 
     resources :admins, only: [:show]
     resources :users, only: [:index, :create, :show]
-    resources :movers, only: [:index, :show, :create, :update, :destroy]
   end
   
   resources :bookings, only: [:index, :show, :create, :update, :destroy]
   resources :tests, only: [:index, :show]
+  resource
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

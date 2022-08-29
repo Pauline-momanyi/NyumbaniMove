@@ -31,10 +31,10 @@ class Api::UsersController < ApplicationController
         
     end
     def index
-        users = User.all
-        render json: users
+        movers = Mover.all
+        render json: movers
     end
-
+    
     private 
     def user_params
         params.permit(:name, :email, :phone, :password, :password_confirmation, :is_mover, :is_client)

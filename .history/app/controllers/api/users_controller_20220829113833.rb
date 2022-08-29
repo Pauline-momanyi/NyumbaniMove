@@ -31,8 +31,8 @@ class Api::UsersController < ApplicationController
         
     end
     def index
-        users = User.all
-        render json: users
+        users = Mover.all
+        render json: movers
     end
 
     private 

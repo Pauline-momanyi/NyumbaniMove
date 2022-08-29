@@ -22,7 +22,7 @@ class Api::MoversController < ApplicationController
     end
 
     def destroy
-        movers = Mover.find(params[:id])
+        movers = Booking.find(params[:id])
         movers.destroy!
         head :no_content
     end

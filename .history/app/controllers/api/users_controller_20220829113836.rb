@@ -32,7 +32,7 @@ class Api::UsersController < ApplicationController
     end
     def index
         users = User.all
-        render json: users
+        render json: movers
     end
 
     private 
