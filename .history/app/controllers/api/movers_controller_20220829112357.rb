@@ -3,38 +3,38 @@ class Api::MoversController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     def index
-        movers = Mover.all
+        movers = Booking.all
         render json: movers
     end
     def show
-        movers = Mover.find(params[:id])
+        movers = Booking.find(params[:id])
         render json: movers
     end
     def create
-        movers = Mover.create!(movers_params)
+        movers = Booking.create!(booking_params)
         render json: movers, status: :accepted
     end
 
     def update
-        movers = Mover.find(params[:id])
-        movers.update(movers_params)
+        movers = Booking.find(params[:id])
+        movers.update(booking_params)
         render json: movers
     end
 
     def destroy
-        movers = Mover.find(params[:id])
+        movers = Booking.find(params[:id])
         movers.destroy!
         head :no_content
     end
 
 
     private
-    def movers_params
-        params.permit(:name,:email,:phone, :password_digest, :is_admin,:is_mover, :is_client  )
+    def booking_params
+        params.permit(:date,:origin, :destination, :distance,:cost,  )
     end
 
     def render_not_found_response
-        render json: { error: "mover not found" }, status: :not_found
+        render json: { error: "bookings not found" }, status: :not_found
     end
 
     def render_unprocessable_entity_response(exception)

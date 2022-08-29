@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
-    
-    def create         
+    def create 
+        
         if params[:is_mover]
             user = Mover.create!(user_params)
         else
@@ -32,7 +32,7 @@ class Api::UsersController < ApplicationController
     end
     def index
         users = User.all
-        render json: users
+        render json: movers
     end
 
     private 
