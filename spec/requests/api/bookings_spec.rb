@@ -78,37 +78,62 @@ RSpec.describe 'api/bookings', type: :request do
       end
     end
 
-    patch('update booking') do
-      tags 'Bookings'
-      response(200, 'successful') do
-        let(:id) { '123' }
+    # patch('update booking') do
+    #   tags 'Bookings'
+    #   produces 'application/json'
+    #   parameter name: 'id', in: :path, type: :string, description: 'id'
+    #   response(200, 'successful') do
+    #     let(:id) { '123' }
 
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
-        run_test!
-      end
-    end
+    #     after do |example|
+    #       example.metadata[:response][:content] = {
+    #         'application/json' => {
+    #           example: JSON.parse(response.body, symbolize_names: true)
+    #         }
+    #       }
+    #     end
+    #     run_test!
+    #   end
+    #   response(404, 'booking not found') do
+    #     let(:id) { 'invalid' }
+    #     run_test!
+    #   end
+    # end
 
-    put('update booking') do
-      tags 'Bookings'
-      response(200, 'successful') do
-        let(:id) { '123' }
+    # put('update booking') do
+    #   tags 'Bookings'
+    #   produces 'application/json'
+    #   parameter name: 'id', in: :path, type: :string, description: 'id'
+    #   response(200, 'successful') do
+    #     let(:id) { '123' }
+    #     parameter name: :booking, in: :body, schema: {
+    #       type: :object,
+    #       properties: {
+    #         date: {type: :date},
+    #         origin: {type: :string},
+    #         destination: { type: :string },
+    #         distance: { type: :string },
+    #         cost: {type: :string},
+    #         houseSize: {type: :string},
+    #         mover_id: {type: :integer}
+    #       },
+    #       required: %w[date origin destination distance cost houseSize mover_id ]
+    #     }
 
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
-        run_test!
-      end
-    end
+    #     after do |example|
+    #       example.metadata[:response][:content] = {
+    #         'application/json' => {
+    #           example: JSON.parse(response.body, symbolize_names: true)
+    #         }
+    #       }
+    #     end
+    #     run_test!
+    #   end
+    #   response(404, 'booking not found') do
+    #     let(:id) { 'invalid' }
+    #     run_test!
+    #   end
+    # end
 
     delete('delete booking') do
       tags 'Bookings'

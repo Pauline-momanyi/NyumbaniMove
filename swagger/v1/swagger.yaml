@@ -90,20 +90,6 @@ paths:
           description: successful
         '404':
           description: booking not found
-    patch:
-      summary: update booking
-      tags:
-      - Bookings
-      responses:
-        '200':
-          description: successful
-    put:
-      summary: update booking
-      tags:
-      - Bookings
-      responses:
-        '200':
-          description: successful
     delete:
       summary: delete booking
       tags:
@@ -135,6 +121,8 @@ paths:
       responses:
         '200':
           description: successful
+        '422':
+          description: Invalid details
       requestBody:
         content:
           application/json:
@@ -174,20 +162,6 @@ paths:
           description: successful
     patch:
       summary: update mover
-      tags:
-      - Movers
-      responses:
-        '200':
-          description: successful
-    put:
-      summary: update mover
-      tags:
-      - Movers
-      responses:
-        '200':
-          description: successful
-    delete:
-      summary: delete mover
       tags:
       - Movers
       responses:

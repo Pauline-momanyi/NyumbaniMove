@@ -10,11 +10,11 @@ class Api::MoversController < ApplicationController
         movers = Mover.find(params[:id])
         render json: movers
     end
-    
-    # def create
-    #     movers = Mover.create!(movers_params)
-    #     render json: movers, status: :accepted
-    # end
+
+    def create
+        movers = Mover.create!(movers_params)
+        render json: movers, status: :accepted
+    end
 
     def update
         mover = Mover.find_by(id: params[:id])
