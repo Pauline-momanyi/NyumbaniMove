@@ -1,5 +1,5 @@
 class Api::BookingsController < ApplicationController
-    before_action :authorize
+    # before_action :authorize
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
@@ -37,7 +37,7 @@ class Api::BookingsController < ApplicationController
     end
 
     def render_not_found_response
-        render json: { error: "bookings not found" }, status: :not_found
+        render json: { error: "booking not found" }, status: :not_found
     end
 
     def render_unprocessable_entity_response(exception)

@@ -7,13 +7,13 @@ class Api::AdminsController < ApplicationController
         if admin
             render json: admin, status: :created
         else
-            render json: "Not authorised", status: :unauthorized
+            render json: "Not available", status: :not_found
         end
         # render json: @current_user        
     end
 
     def index         
-        user =  Mover.all 
+        user =  Admin.all 
         render json: user
     end
 

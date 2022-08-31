@@ -1,0 +1,291 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/admins":
+    get:
+      summary: list admins
+      tags:
+      - Admins
+      responses:
+        '200':
+          description: admins found
+  "/api/admins/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show admin
+      tags:
+      - Admins
+      responses:
+        '200':
+          description: admin found
+        '404':
+          description: admin not found
+  "/api/bookings":
+    get:
+      summary: list bookings
+      tags:
+      - Bookings
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create booking
+      tags:
+      - Bookings
+      parameters: []
+      responses:
+        '200':
+          description: bookings found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  type: date
+                origin:
+                  type: string
+                destination:
+                  type: string
+                distance:
+                  type: string
+                cost:
+                  type: string
+                houseSize:
+                  type: string
+                mover_id:
+                  type: integer
+              required:
+              - date
+              - origin
+              - destination
+              - distance
+              - cost
+              - houseSize
+              - mover_id
+  "/api/bookings/{id}":
+    get:
+      summary: show booking
+      tags:
+      - Bookings
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+        '404':
+          description: booking not found
+    patch:
+      summary: update booking
+      tags:
+      - Bookings
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update booking
+      tags:
+      - Bookings
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete booking
+      tags:
+      - Bookings
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successfully deleted
+        '404':
+          description: booking not found
+  "/api/movers":
+    get:
+      summary: list movers
+      tags:
+      - Movers
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create mover
+      tags:
+      - Movers
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                phone:
+                  type: string
+                password:
+                  type: string
+                confirm_password:
+                  type: string
+              required:
+              - name
+              - email
+              - phone
+              - password
+              - confirm_password
+  "/api/movers/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show mover
+      tags:
+      - Movers
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update mover
+      tags:
+      - Movers
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update mover
+      tags:
+      - Movers
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete mover
+      tags:
+      - Movers
+      responses:
+        '200':
+          description: successful
+  "/api/login":
+    post:
+      summary: create session
+      tags:
+      - Sessions
+      parameters: []
+      responses:
+        '200':
+          description: successful
+        '404':
+          description: Invalid email or password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+  "/api/logout":
+    delete:
+      summary: delete session
+      tags:
+      - Sessions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful logout
+        '404':
+          description: user not found
+  "/api/signup":
+    post:
+      summary: create user
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '200':
+          description: successful
+        '422':
+          description: Invalid details
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                phone:
+                  type: string
+                password:
+                  type: string
+                password_confirmation:
+                  type: string
+              required:
+              - name
+              - email
+              - phone
+              - password
+              - confirm_password
+  "/api/me":
+    get:
+      summary: show user
+      tags:
+      - Users
+      responses:
+        '200':
+          description: successful
+        '401':
+          description: unauthorized
+  "/api/users":
+    get:
+      summary: list users
+      tags:
+      - Users
+      responses:
+        '200':
+          description: users found
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: 127.0.0.1:3000/
