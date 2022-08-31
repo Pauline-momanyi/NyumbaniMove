@@ -46,7 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_20_081935) do
     t.string "phone"
     t.string "password_digest"
     t.boolean "is_admin", default: false, null: false
-    t.boolean "is_mover", default: true, null: false
+    t.boolean "is_mover", default: false, null: false
     t.boolean "is_client", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

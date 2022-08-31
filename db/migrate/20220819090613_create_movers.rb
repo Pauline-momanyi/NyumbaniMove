@@ -6,7 +6,7 @@ class CreateMovers < ActiveRecord::Migration[7.0]
       t.string :phone
       t.string :password_digest
       t.boolean :is_admin, default: false, null: false
-      t.boolean :is_mover, default: true, null: false
+      t.boolean :is_mover, default: false, null: false
       t.boolean :is_client, default: false, null: false
 
       t.timestamps

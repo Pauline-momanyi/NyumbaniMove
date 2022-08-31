@@ -16,9 +16,9 @@ class Api::MoversController < ApplicationController
     end
 
     def update
-        movers = Mover.find(params[:id])
-        movers.update(movers_params)
-        render json: movers
+        mover = Mover.find_by(id: params[:id])
+        mover.update(is_mover: true)
+        render json: mover
     end
 
     def destroy
@@ -30,7 +30,7 @@ class Api::MoversController < ApplicationController
 
     private
     def movers_params
-        params.permit(:name,:email,:phone, :password_digest, :is_admin,:is_mover, :is_client  )
+        params.permit(:name,:email,:phone, :password, :password_confirmation, :is_admin,:is_mover, :is_client  )
     end
 
     def render_not_found_response

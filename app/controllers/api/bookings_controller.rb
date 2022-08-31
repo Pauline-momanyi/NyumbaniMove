@@ -1,4 +1,5 @@
-class BookingsController < ApplicationController
+class Api::BookingsController < ApplicationController
+    before_action :authorize
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
@@ -7,30 +8,30 @@ class BookingsController < ApplicationController
         render json: bookings
     end
     def show
-        bookings = Booking.find(params[:id])
-        render json: bookings
+        booking = Booking.find(params[:id])
+        render json: booking
     end
     def create
-        bookings = Booking.create!(booking_params)
-        render json: bookings, status: :accepted
+        booking = @current_user.bookings.create!(booking_params)
+        render json: booking, status: :accepted
     end
 
     def update
-        bookings = Booking.find(params[:id])
-        bookings.update(booking_params)
+        booking = Booking.find_by(id: params[:id])
+        booking.update(booking_params)
         render json: bookings
     end
 
     def destroy
-        bookings = Booking.find(params[:id])
-        bookings.destroy!
+        booking = Booking.find_by(id: params[:id])
+        booking.destroy!
         head :no_content
     end
 
 
     private
     def booking_params
-        params.permit(:date,:origin, :destination, :distance,:cost,  )
+        params.permit(:date,:origin, :destination, :distance,:cost, :houseSize )
     end
 
     def render_not_found_response

@@ -3,7 +3,7 @@ class Api::SessionsController < ApplicationController
     # rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     def create 
-        user = User.find_by(email: params[:email]) || Mover.find_by(email: params[:email])
+        user = Admin.find_by(email: params[:email]) || User.find_by(email: params[:email]) || Mover.find_by(email: params[:email])
         # byebug
         if  user&.authenticate(params[:password]) 
             session[:user_id] = user.id 
