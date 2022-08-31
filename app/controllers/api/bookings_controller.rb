@@ -4,8 +4,10 @@ class Api::BookingsController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     def index
+        # byebug
         bookings = Booking.all
         render json: bookings
+        # render json: @current_user
     end
     def show
         booking = Booking.find(params[:id])
@@ -31,7 +33,7 @@ class Api::BookingsController < ApplicationController
 
     private
     def booking_params
-        params.permit(:date,:origin, :destination, :distance,:cost, :houseSize )
+        params.permit(:date, :origin, :destination, :distance,:cost, :houseSize, :mover_id )
     end
 
     def render_not_found_response
