@@ -6,6 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-Admin.create!(name: 'Nyumbani Move', email: 'nyumbanimove@info.com', phone: '0701000000', password: '123456', is_admin: true, is_client: false, is_mover: false)
+Admin.create!(name: 'Nyumbani Move', email: 'nyumbanimovers@info.com', phone: '0701000000', password: '1234', is_admin: true, is_client: false, is_mover: false)
 
 puts 'done seeding'
