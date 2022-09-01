@@ -16,7 +16,7 @@ class Api::BookingsController < ApplicationController
     def create
         # booking = @current_user.bookings.create!
         # (booking_params)
-        booking = Booking.create!
+        booking = Bookings.create!
         (booking_params)
         render json: booking, status: :accepted
     end
