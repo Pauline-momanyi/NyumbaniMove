@@ -14,10 +14,7 @@ class Api::BookingsController < ApplicationController
         render json: booking
     end
     def create
-        # booking = @current_user.bookings.create!
-        # (booking_params)
-        booking = Booking.create!
-        (booking_params)
+        booking = @current_user.bookings.create!(booking_params)
         render json: booking, status: :accepted
     end
 
@@ -36,7 +33,7 @@ class Api::BookingsController < ApplicationController
 
     private
     def booking_params
-        params.permit(:date, :origin, :destination, :distance,:cost, :houseSize, :mover_id, :user_id )
+        params.permit(:date, :origin, :destination, :distance,:cost, :houseSize, :mover_id )
     end
 
     def render_not_found_response
